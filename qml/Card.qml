@@ -26,6 +26,7 @@ import QtQuick.Controls 1.3
 import QtGraphicalEffects 1.0
 
 Item {
+    id: root
     width: 1000
     height: 600
 
@@ -42,44 +43,16 @@ Item {
             id: mainItem
             anchors.centerIn: parent
 
-            width: 300
-            height: 300
+            width: root.width - 50
+            height: root.height - 50
             color: "white"
 
-            ColumnLayout {
+            FlightInformation {
                 anchors.fill: parent
                 anchors.leftMargin: 7
                 anchors.rightMargin: 7
                 anchors.topMargin: 7
                 anchors.bottomMargin: 7
-
-                Label {
-                    text: "Flight VY8992"
-                    Layout.alignment: Qt.AlignTop
-                }
-                RowLayout {
-                    ColumnLayout {
-                        Label {
-                            text: "Barcelona"
-                        }
-                        Label {
-                            text: "12:40"
-                        }
-                    }
-
-                    // Spacer
-                    Item {
-                        Layout.fillWidth: true
-                    }
-                    ColumnLayout {
-                        Label {
-                            text: "Brussels"
-                        }
-                        Label {
-                            text: "2:10"
-                        }
-                    }
-                }
             }
         }
     }
