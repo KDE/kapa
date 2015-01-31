@@ -49,10 +49,10 @@ Item {
 
             FlightInformation {
                 anchors.fill: parent
-                anchors.leftMargin: 7
-                anchors.rightMargin: 7
-                anchors.topMargin: 7
-                anchors.bottomMargin: 7
+                anchors.leftMargin: 15
+                anchors.rightMargin: 15
+                anchors.topMargin: 20
+                anchors.bottomMargin: 20
             }
         }
     }
