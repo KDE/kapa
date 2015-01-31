@@ -27,7 +27,7 @@ import QtGraphicalEffects 1.0
 
 Item {
     id: root
-    width: 1000
+    width: 600
     height: 600
 
     Item {

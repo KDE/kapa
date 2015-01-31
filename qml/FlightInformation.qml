@@ -28,11 +28,19 @@ import org.kde.kquickcontrolsaddons 2.0 as KQuickControls
 ColumnLayout {
     spacing: 20
 
-    Heading {
-        text: "Vueling Flight 8992"
-        wrapMode: Text.WordWrap
+    RowLayout {
         Layout.alignment: Qt.AlignTop
-        Layout.fillWidth: true
+        Heading {
+            text: "Vueling Flight 8992"
+            wrapMode: Text.WordWrap
+            Layout.alignment: Qt.AlignTop
+            Layout.fillWidth: true
+        }
+        Image {
+            source: "airplane49.png"
+            sourceSize.width: 128
+            sourceSize.height: 128
+        }
     }
 
     // FIXME: Add the Image?
