@@ -23,34 +23,123 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.1 as QtControls
 
+import org.kde.kquickcontrolsaddons 2.0 as KQuickControls
+
 ColumnLayout {
-    QtControls.Label {
-        text: "Flight VY8992"
+    spacing: 20
+
+    Heading {
+        text: "Vueling Flight 8992"
+        wrapMode: Text.WordWrap
+        Layout.alignment: Qt.AlignTop
+        Layout.fillWidth: true
+    }
+
+    // FIXME: Add the Image?
+
+    // Seperator
+    Rectangle {
+        color: "black"
+        opacity: 0.15
+        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignTop
+        height: 1
+    }
+
+    // We can add "Status: On Time"
+    Heading {
+        text: "Mon 29 Oct 2014"
+        level: 5
         Layout.alignment: Qt.AlignTop
     }
+
+    ColumnLayout {
+        Layout.alignment: Qt.AlignTop
+        spacing: 2
+
+        QtControls.Label {
+            text: "Depart Barcelona"
+            color: "grey"
+        }
+        RowLayout {
+            spacing: 20
+            Heading {
+                text: "BCN"
+                level: 1
+                Layout.alignment: Qt.AlignTop
+            }
+
+            ColumnLayout {
+                spacing: 0
+                Heading {
+                    text: "12:30 PM"
+                    level: 5
+                }
+
+                Heading {
+                    text: "Terminal 1"
+                    level: 5
+                    opacity: 0.5
+                }
+            }
+        }
+    }
+
+    ColumnLayout {
+        Layout.alignment: Qt.AlignTop
+        spacing: 5
+
+        QtControls.Label {
+            text: "Arrive Brussels"
+            color: "grey"
+        }
+        RowLayout {
+            spacing: 20
+            Heading {
+                text: "BRU"
+                level: 1
+                Layout.alignment: Qt.AlignTop
+            }
+
+            ColumnLayout {
+                spacing: 0
+                Heading {
+                    text: "2:20 PM"
+                    level: 5
+                }
+
+                Heading {
+                    text: "Terminal 1"
+                    level: 5
+                    opacity: 0.5
+                }
+            }
+        }
+    }
+
+    // Seperator
+    Rectangle {
+        color: "black"
+        opacity: 0.15
+        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignTop
+        height: 1
+    }
+
     RowLayout {
         Layout.alignment: Qt.AlignTop
-        ColumnLayout {
-            QtControls.Label {
-                text: "Barcelona"
-            }
-            QtControls.Label {
-                text: "12:40"
-            }
+        spacing: 20
+
+        KQuickControls.QIconItem {
+            width: 32
+            height: 32
+            icon: "mail-message-new"
         }
 
-        // Spacer
-        // FIXME: Add some kind of arrow!
-        Item {
-            Layout.fillWidth: true
-        }
-        ColumnLayout {
-            QtControls.Label {
-                text: "Brussels"
-            }
-            QtControls.Label {
-                text: "2:10"
-            }
+        QtControls.Label {
+            text: "View Email"
+            color: "blue"
+            opacity: 0.5
         }
     }
 }
