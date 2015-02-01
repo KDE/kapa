@@ -1,0 +1,95 @@
+[  {
+    "@context" : "http://schema.org/",
+    "@type" : "FlightReservation",
+    "reservationNumber" : "A8VPJG",
+    "ticketNumber" : "A8VPJG",
+
+    "underName" : {
+        "@type" : "Person",
+        "givenName" : "Vishesh",
+        "familyName" : "Handa"
+    },
+
+    "reservationFor" : {
+        "@type" : "Flight",
+        "flightNumber" : "8992",
+        "departureTime" : "2015-01-30T12:40:00+01:00",
+        "arivalTime" : "2015-01-30T14:50:00+01:00",
+
+        "airline" : {
+        "@type" : "Airline",
+        "iataCode" : "VY",
+        "name" : "Vueling"
+        },
+
+        "departureAirport" : {
+        "@type" : "Airport",
+        "iataCode" : "BCN",
+        "name" : "Barcelona",
+
+        "address" : {
+            "@type" : "PostalAddress",
+            "addressLocality" : "Barcelona"
+        }
+        },
+
+        "arrivalAirport" : {
+        "@type" : "Airport",
+        "iataCode" : "BRU",
+        "name" : "Brussels",
+
+        "address" : {
+            "@type" : "PostalAddress",
+            "addressLocality" : "Brussels"
+        }
+        }
+    }
+  },
+  {
+    "@context" : "http://schema.org/",
+    "@type" : "FlightReservation",
+    "reservationNumber" : "A8VPJG",
+    "ticketNumber" : "A8VPJG",
+
+    "underName" : {
+        "@type" : "Person",
+        "givenName" : "Vishesh",
+        "familyName" : "Handa"
+    },
+
+    "reservationFor" : {
+        "@type" : "Flight",
+        "flightNumber" : "8991",
+        "departureTime" : "2015-02-01T21:00:00+01:00",
+        "arivalTime" : "2015-02-01T22:55:00+01:00",
+
+        "airline" : {
+        "@type" : "Airline",
+        "iataCode" : "VY",
+        "name" : "Vueling"
+        },
+
+        "departureAirport" : {
+        "@type" : "Airport",
+        "iataCode" : "BRU",
+        "name" : "Brussels",
+
+        "address" : {
+            "@type" : "PostalAddress",
+            "addressLocality" : "Brussels"
+        }
+        },
+
+        "arrivalAirport" : {
+        "@type" : "Airport",
+        "iataCode" : "BCN",
+        "name" : "Barcelona",
+
+        "address" : {
+            "@type" : "PostalAddress",
+            "addressLocality" : "Barcelona"
+        }
+        }
+    }
+  }
+]
