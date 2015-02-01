@@ -39,11 +39,15 @@ class MicroDataParserTest : public QObject
 
 private slots:
     void test();
+    void test_data();
 };
 
 void MicroDataParserTest::test()
 {
-    QFile file(TEST_FILES_PATH + QString("testdata/data1.html"));
+    QFETCH(QString, microdata);
+    QFETCH(QString, jsonld);
+
+    QFile file(TEST_FILES_PATH + QString("testdata/") + microdata);
     file.open(QIODevice::ReadOnly);
 
     QTextStream stream(&file);
@@ -52,15 +56,22 @@ void MicroDataParserTest::test()
     MicroDataParser parser;
     QVariant result = parser.parse(data);
 
-    QFile file2(TEST_FILES_PATH + QString("testdata/data1.json-ld"));
+    QFile file2(TEST_FILES_PATH + QString("testdata/") + jsonld);
     file2.open(QIODevice::ReadOnly);
 
     QJsonDocument doc = QJsonDocument::fromJson(file2.readAll());
     QVariant actual = doc.toVariant();
-    qDebug() << "RESULT" << result;
-    qDebug() << "ACTUAL" << doc.toVariant();
 
     QCOMPARE(result, actual);
+}
+
+void MicroDataParserTest::test_data()
+{
+    QTest::addColumn<QString>("microdata");
+    QTest::addColumn<QString>("jsonld");
+
+    QTest::newRow("person") << "data1.html" << "data1.json-ld";
+    QTest::newRow("flight-with-sub-item") << "data2.html" << "data2.json-ld";
 }
 
 QTEST_MAIN(MicroDataParserTest)

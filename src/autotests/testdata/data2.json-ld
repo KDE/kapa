@@ -1,0 +1,12 @@
+{
+    "@context" : "http://schema.org/",
+    "@type" : "FlightReservation",
+    "reservationNumber" : "A8VPJG",
+    "ticketNumber" : "A8VPJG",
+
+    "underName" : {
+        "@type" : "Person",
+        "givenName" : "Vishesh",
+        "familyName" : "Handa"
+    }
+}
