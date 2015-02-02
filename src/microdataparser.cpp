@@ -42,7 +42,24 @@ static QVariantMap processItemScope(QDomElement e)
 
             QVariantMap subMap = processItemScope(e.firstChildElement());
             subMap["@type"] = type;
-            map[prop] = subMap;
+
+            if (!map.contains(prop)) {
+                map[prop] = subMap;
+            } else {
+                QVariant v = map.value(prop);
+                if (v.type() == QVariant::List) {
+                    QVariantList list = v.toList();
+                    list << subMap;
+                    v = list;
+                }
+                else {
+                    qDebug() << subMap;
+                    QVariantList list;
+                    list << v << subMap;
+                    v = list;
+                }
+                map[prop] = v;
+            }
         }
         else if (e.hasAttribute("itemprop")) {
             QString prop = e.attribute("itemprop");
@@ -112,6 +129,14 @@ QVariant MicroDataParser::parse(const QString& html)
         auto map = var.toMap();
         map.insert("@context", "http://schema.org/");
         var = map;
+    } else if (var.type() == QVariant::List) {
+        auto list = var.toList();
+        for (QVariant& v : list) {
+            auto map = var.toMap();
+            map.insert("@context", "http://schema.org/");
+            v = map;
+        }
+        var = list;
     }
 
     return var;

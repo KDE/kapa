@@ -1,5 +1,8 @@
-[  {
-    "@context" : "http://schema.org/",
+{
+   "@context" : "http://schema.org/",
+   "@type" : "ReservationPackage",
+   "reservation" : [
+   {
     "@type" : "FlightReservation",
     "reservationNumber" : "A8VPJG",
     "ticketNumber" : "A8VPJG",
@@ -14,7 +17,7 @@
         "@type" : "Flight",
         "flightNumber" : "8992",
         "departureTime" : "2015-01-30T12:40:00+01:00",
-        "arivalTime" : "2015-01-30T14:50:00+01:00",
+        "arrivalTime" : "2015-01-30T14:50:00+01:00",
 
         "airline" : {
         "@type" : "Airline",
@@ -46,7 +49,6 @@
     }
   },
   {
-    "@context" : "http://schema.org/",
     "@type" : "FlightReservation",
     "reservationNumber" : "A8VPJG",
     "ticketNumber" : "A8VPJG",
@@ -61,7 +63,7 @@
         "@type" : "Flight",
         "flightNumber" : "8991",
         "departureTime" : "2015-02-01T21:00:00+01:00",
-        "arivalTime" : "2015-02-01T22:55:00+01:00",
+        "arrivalTime" : "2015-02-01T22:55:00+01:00",
 
         "airline" : {
         "@type" : "Airline",
@@ -91,5 +93,5 @@
         }
         }
     }
-  }
-]
+  } ]
+}

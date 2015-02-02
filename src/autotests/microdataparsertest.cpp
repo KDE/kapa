@@ -59,7 +59,13 @@ void MicroDataParserTest::test()
     QFile file2(TEST_FILES_PATH + QString("testdata/") + jsonld);
     file2.open(QIODevice::ReadOnly);
 
-    QJsonDocument doc = QJsonDocument::fromJson(file2.readAll());
+    QJsonParseError error;
+    QJsonDocument doc = QJsonDocument::fromJson(file2.readAll(), &error);
+    if (error.error) {
+        qDebug() << error.errorString();
+        Q_ASSERT(error.error == 0);
+    }
+
     QVariant actual = doc.toVariant();
 
     QCOMPARE(result, actual);
@@ -72,6 +78,7 @@ void MicroDataParserTest::test_data()
 
     QTest::newRow("person") << "data1.html" << "data1.json-ld";
     QTest::newRow("flight-with-sub-item") << "data2.html" << "data2.json-ld";
+    QTest::newRow("full-email") << "microDataTest.html" << "microDataTest.jsonld";
 }
 
 QTEST_MAIN(MicroDataParserTest)
