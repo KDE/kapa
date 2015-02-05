@@ -26,12 +26,21 @@ import QtQuick.Controls 1.1 as QtControls
 import org.kde.kquickcontrolsaddons 2.0 as KQuickControls
 
 ColumnLayout {
+    property string flightName : "Vueling Flight"
+    property string flightNumber : "8992"
+    property var departureTime : "2015-01-30T12:40:00+01:00"
+    property var arrivalTime : "2015-01-30T14:50:00+01:00"
+    property string departureAirportCode : "BCN"
+    property string departureAirportName : "Barcelona"
+    property string arrivalAirportCode : "BRU"
+    property string arrivalAirportName : "Brussels"
+
     spacing: 20
 
     RowLayout {
         Layout.alignment: Qt.AlignTop
         Heading {
-            text: "Vueling Flight 8992"
+            text: flightName + " " + flightNumber
             wrapMode: Text.WordWrap
             Layout.alignment: Qt.AlignTop
             Layout.fillWidth: true
@@ -56,7 +65,7 @@ ColumnLayout {
 
     // We can add "Status: On Time"
     Heading {
-        text: "Mon 29 Oct 2014"
+        text: Qt.formatDate(departureTime, "ddd d MMM yyyy")
         level: 5
         Layout.alignment: Qt.AlignTop
     }
@@ -66,13 +75,13 @@ ColumnLayout {
         spacing: 2
 
         QtControls.Label {
-            text: "Depart Barcelona"
+            text: "Depart " + departureAirportName
             color: "grey"
         }
         RowLayout {
             spacing: 20
             Heading {
-                text: "BCN"
+                text: departureAirportCode
                 level: 1
                 Layout.alignment: Qt.AlignTop
             }
@@ -80,7 +89,7 @@ ColumnLayout {
             ColumnLayout {
                 spacing: 0
                 Heading {
-                    text: "12:30 PM"
+                    text: Qt.formatDateTime(departureTime, "h:m AP")
                     level: 5
                 }
 
@@ -98,13 +107,13 @@ ColumnLayout {
         spacing: 5
 
         QtControls.Label {
-            text: "Arrive Brussels"
+            text: "Arrive " + arrivalAirportName
             color: "grey"
         }
         RowLayout {
             spacing: 20
             Heading {
-                text: "BRU"
+                text: arrivalAirportCode
                 level: 1
                 Layout.alignment: Qt.AlignTop
             }
@@ -112,7 +121,7 @@ ColumnLayout {
             ColumnLayout {
                 spacing: 0
                 Heading {
-                    text: "2:20 PM"
+                    text: Qt.formatDateTime(arrivalTime, "h:m AP")
                     level: 5
                 }
 
