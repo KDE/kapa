@@ -17,23 +17,25 @@
  *
  */
 
-#include <QCoreApplication>
+#ifndef PROCESSOR_H
+#define PROCESSOR_H
 
-#include "emailfetchjob.h"
-#include "processor.h"
+#include <QObject>
 
-int main(int argc, char** argv)
+#include <KMime/Message>
+#include <KImap/FetchJob>
+
+class Processor : public QObject
 {
-    QCoreApplication app(argc, argv);
+    Q_OBJECT
+public:
+    explicit Processor(QObject* parent = 0);
 
-    EmailFetchJob* job = new EmailFetchJob();
-    job->setHostName("imap.gmail.com");
-    job->setPort(993);
-    job->setUserName();
-    job->setPassword();
-    job->start();
+public Q_SLOTS:
+    void process(const KIMAP::MessagePtr& email);
 
-    Processor processor;
-    QObject::connect(job, SIGNAL(fetchedEmail(KIMAP::MessagePtr)), &processor, SLOT(process(KIMAP::MessagePtr)));
-    return app.exec();
-}
+private:
+    void process(const QVariantMap& map);
+};
+
+#endif // PROCESSOR_H

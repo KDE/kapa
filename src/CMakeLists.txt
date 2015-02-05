@@ -1,6 +1,12 @@
-add_executable(kdenowd main.cpp emailfetchjob.cpp)
+add_executable(kdenowd
+    main.cpp
+    emailfetchjob.cpp
+    processor.cpp
+    microdataparser.cpp
+)
 target_link_libraries(kdenowd
     Qt5::Core
+    Qt5::Xml
     KF5::Imap
     KF5::CoreAddons
 )

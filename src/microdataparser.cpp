@@ -53,7 +53,6 @@ static QVariantMap processItemScope(QDomElement e)
                     v = list;
                 }
                 else {
-                    qDebug() << subMap;
                     QVariantList list;
                     list << v << subMap;
                     v = list;
