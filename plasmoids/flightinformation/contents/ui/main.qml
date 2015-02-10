@@ -25,27 +25,23 @@ import QtQuick.Controls 1.3
 
 import org.kde.now 0.1 as KdeNow
 
-Item {
-    Layout.minimumWidth: 600
-    Layout.maximumWidth: 600
+KdeNow.FlightInformation {
+    Layout.minimumWidth: 300
+    Layout.maximumWidth: 300
     Layout.minimumHeight: 600
     Layout.maximumHeight: 600
 
-    KdeNow.FlightInformation {
-        anchors.fill: parent
-
-        KdeNow.FlightReservation {
-            id: reservation
-        }
-
-        flightName: reservation.flightName
-        flightNumber: reservation.flightNumber
-        departureTime: reservation.departureTime
-        arrivalTime: reservation.arrivalTime
-
-        departureAirportCode: reservation.departureAirportCode
-        departureAirportName: reservation.departureAirportName
-        arrivalAirportCode: reservation.arrivalAirportCode
-        arrivalAirportName: reservation.arrivalAirportName
+    KdeNow.FlightReservation {
+        id: reservation
     }
+
+    flightName: reservation.flightName
+    flightNumber: reservation.flightNumber
+    departureTime: reservation.departureTime
+    arrivalTime: reservation.arrivalTime
+
+    departureAirportCode: reservation.departureAirportCode
+    departureAirportName: reservation.departureAirportName
+    arrivalAirportCode: reservation.arrivalAirportCode
+    arrivalAirportName: reservation.arrivalAirportName
 }
