@@ -1,0 +1,4 @@
+module org.kde.now
+plugin kdenowqmlplugin
+
+FlightInformation 0.1 FlightInformation.qml

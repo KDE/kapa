@@ -6,6 +6,8 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
 
 find_package(Qt5 REQUIRED NO_MODULE COMPONENTS Qml Quick Test)
 find_package(KF5 5.5 REQUIRED COMPONENTS Plasma I18n Declarative Config)
+find_package(KF5 REQUIRED COMPONENTS Imap Mime)
+find_package(KDocumentStore REQUIRED)
 
 include(FeatureSummary)
 include(ECMAddTests)
@@ -22,5 +24,7 @@ include_directories(
 )
 
 add_subdirectory(src)
+add_subdirectory(qml)
+add_subdirectory(plasmoids)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
