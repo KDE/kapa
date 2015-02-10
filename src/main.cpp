@@ -19,6 +19,9 @@
 
 #include <QCoreApplication>
 
+#include <QCommandLineParser>
+#include <QCommandLineOption>
+
 #include "emailfetchjob.h"
 #include "processor.h"
 
@@ -26,11 +29,23 @@ int main(int argc, char** argv)
 {
     QCoreApplication app(argc, argv);
 
+    QCommandLineParser parser;
+    parser.addOption(QCommandLineOption("imapServer", "Imap server", "server"));
+    parser.addOption(QCommandLineOption("imapPort", "Imap port", "number"));
+    parser.addOption(QCommandLineOption("username", "Email", "email"));
+    parser.addOption(QCommandLineOption("password", "Email password", "password"));
+    parser.addHelpOption();
+    parser.process(app);
+
+    if (!parser.isSet("imapServer") || !parser.isSet("imapPort") || !parser.isSet("username") || !parser.isSet("password")) {
+        parser.showHelp(1);
+    }
+
     EmailFetchJob* job = new EmailFetchJob();
-    job->setHostName("imap.gmail.com");
-    job->setPort(993);
-    job->setUserName();
-    job->setPassword();
+    job->setHostName(parser.value("imapServer"));
+    job->setPort(parser.value("imapPort").toUShort());
+    job->setUserName(parser.value("username"));
+    job->setPassword(parser.value("password"));
     job->start();
 
     Processor processor;
