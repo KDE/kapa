@@ -24,6 +24,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.1 as QtControls
 
 import org.kde.kquickcontrolsaddons 2.0 as KQuickControls
+import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 ColumnLayout {
     property string flightName : "Vueling Flight"
@@ -39,7 +40,7 @@ ColumnLayout {
 
     RowLayout {
         Layout.alignment: Qt.AlignTop
-        Heading {
+        PlasmaExtras.Heading {
             text: flightName + " " + flightNumber
             wrapMode: Text.WordWrap
             Layout.alignment: Qt.AlignTop
@@ -64,7 +65,7 @@ ColumnLayout {
     }
 
     // We can add "Status: On Time"
-    Heading {
+    PlasmaExtras.Heading {
         text: Qt.formatDate(departureTime, "ddd d MMM yyyy")
         level: 5
         Layout.alignment: Qt.AlignTop
@@ -80,7 +81,7 @@ ColumnLayout {
         }
         RowLayout {
             spacing: 20
-            Heading {
+            PlasmaExtras.Heading {
                 text: departureAirportCode
                 level: 1
                 Layout.alignment: Qt.AlignTop
@@ -88,12 +89,12 @@ ColumnLayout {
 
             ColumnLayout {
                 spacing: 0
-                Heading {
+                PlasmaExtras.Heading {
                     text: Qt.formatDateTime(departureTime, "h:m AP")
                     level: 5
                 }
 
-                Heading {
+                PlasmaExtras.Heading {
                     text: "Terminal 1"
                     level: 5
                     opacity: 0.5
@@ -112,7 +113,7 @@ ColumnLayout {
         }
         RowLayout {
             spacing: 20
-            Heading {
+            PlasmaExtras.Heading {
                 text: arrivalAirportCode
                 level: 1
                 Layout.alignment: Qt.AlignTop
@@ -120,12 +121,12 @@ ColumnLayout {
 
             ColumnLayout {
                 spacing: 0
-                Heading {
+                PlasmaExtras.Heading {
                     text: Qt.formatDateTime(arrivalTime, "h:m AP")
                     level: 5
                 }
 
-                Heading {
+                PlasmaExtras.Heading {
                     text: "Terminal 1"
                     level: 5
                     opacity: 0.5
