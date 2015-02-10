@@ -33,5 +33,19 @@ Item {
 
     KdeNow.FlightInformation {
         anchors.fill: parent
+
+        KdeNow.FlightReservation {
+            id: reservation
+        }
+
+        flightName: reservation.flightName
+        flightNumber: reservation.flightNumber
+        departureTime: reservation.departureTime
+        arrivalTime: reservation.arrivalTime
+
+        departureAirportCode: reservation.departureAirportCode
+        departureAirportName: reservation.departureAirportName
+        arrivalAirportCode: reservation.arrivalAirportCode
+        arrivalAirportName: reservation.arrivalAirportName
     }
 }

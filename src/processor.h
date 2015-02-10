@@ -25,6 +25,9 @@
 #include <KMime/Message>
 #include <KImap/FetchJob>
 
+#include <KDocumentStore/KDocumentStore>
+#include <KDocumentStore/KDocumentCollection>
+
 class Processor : public QObject
 {
     Q_OBJECT
@@ -36,6 +39,9 @@ public Q_SLOTS:
 
 private:
     void process(const QVariantMap& map);
+
+    KDocumentStore m_store;
+    KDocumentCollection m_coll;
 };
 
 #endif // PROCESSOR_H

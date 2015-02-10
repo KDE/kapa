@@ -19,10 +19,36 @@
 
 #include "flightreservation.h"
 
+#include <KDocumentStore/KDocumentStore>
+#include <KDocumentStore/KDocumentCollection>
+#include <KDocumentStore/KDocumentQuery>
+
+#include <QStandardPaths>
+#include <QDebug>
+
 FlightReservation::FlightReservation(QObject* parent)
     : QObject(parent)
 {
-    m_data.insert("flightName", "Vueling");
+    QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/kdenow";
+
+    KDocumentStore store;
+    store.setPath(dir + "/db");
+    if (!store.open()) {
+        qDebug() << "FAILED to open db";
+        return;
+    }
+    KDocumentCollection coll = store.collection("flightinformation");
+
+    QList<QVariantMap> reservations;
+    auto query = coll.find(QVariantMap());
+    while (query.next()) {
+        reservations << query.result();
+    }
+
+    // Choose one?
+    if (!reservations.isEmpty()) {
+        m_data = reservations.last();
+    }
 }
 
 QString FlightReservation::flightName() const

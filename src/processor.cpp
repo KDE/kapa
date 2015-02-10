@@ -22,9 +22,18 @@
 
 #include <kmime/kmime_message.h>
 
+#include <QStandardPaths>
+#include <QDir>
+
 Processor::Processor(QObject* parent)
     : QObject(parent)
 {
+    QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/kdenow";
+    QDir().mkpath(dir);
+
+    m_store.setPath(dir + "/db");
+    m_store.open();
+    m_coll = m_store.collection("flightinformation");
 }
 
 void Processor::process(const KIMAP::MessagePtr& email)
@@ -84,8 +93,16 @@ void Processor::process(const QVariantMap& map)
         QString flightNum = flight.value("flightNumber").toString();
         QString airline = flight.value("airline").toMap().value("name").toString();
 
-        qDebug() << departureTime << arrivalTime;
-        qDebug() << depName << ariName;
-        qDebug() << flightNum << airline;
+        QVariantMap data;
+        data["flightNumber"] = flightNum;
+        data["flightName"] = airline;
+        data["departureTime"] = departureTime;
+        data["arrivalTime"] = arrivalTime;
+        data["departureAirportCode"] = depCode;
+        data["departureAirportName"] = depName;
+        data["arrivalAirportCode"] = ariCode;
+        data["arrivalAirportName"] = ariName;
+
+        m_coll.insert(data);
     }
 }
