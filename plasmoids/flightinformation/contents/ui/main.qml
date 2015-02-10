@@ -35,7 +35,7 @@ KdeNow.FlightInformation {
         id: reservation
     }
 
-    flightName: reservation.flightName
+    flightName: reservation.flightName + " Flight"
     flightNumber: reservation.flightNumber
     departureTime: reservation.departureTime
     arrivalTime: reservation.arrivalTime
