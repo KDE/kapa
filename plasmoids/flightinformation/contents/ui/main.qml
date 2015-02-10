@@ -24,8 +24,9 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.3
 
 import org.kde.now 0.1 as KdeNow
+import org.kde.plasma.extras 2.0 as PlasmaExtras
 
-KdeNow.FlightInformation {
+Item {
     Layout.minimumWidth: 300
     Layout.maximumWidth: 300
     Layout.minimumHeight: 600
@@ -35,13 +36,22 @@ KdeNow.FlightInformation {
         id: reservation
     }
 
-    flightName: reservation.flightName + " Flight"
-    flightNumber: reservation.flightNumber
-    departureTime: reservation.departureTime
-    arrivalTime: reservation.arrivalTime
+    KdeNow.FlightInformation {
+        visible: reservation.valid
 
-    departureAirportCode: reservation.departureAirportCode
-    departureAirportName: reservation.departureAirportName
-    arrivalAirportCode: reservation.arrivalAirportCode
-    arrivalAirportName: reservation.arrivalAirportName
+        flightName: reservation.flightName + " Flight"
+        flightNumber: reservation.flightNumber
+        departureTime: reservation.departureTime
+        arrivalTime: reservation.arrivalTime
+
+        departureAirportCode: reservation.departureAirportCode
+        departureAirportName: reservation.departureAirportName
+        arrivalAirportCode: reservation.arrivalAirportCode
+        arrivalAirportName: reservation.arrivalAirportName
+    }
+
+    PlasmaExtras.Heading {
+        text: "No Upcoming Flights"
+        visible: !reservation.valid
+    }
 }

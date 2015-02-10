@@ -32,6 +32,7 @@
 class FlightReservation : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(bool valid READ valid)
     Q_PROPERTY(QString flightName READ flightName)
     Q_PROPERTY(QString flightNumber READ flightNumber)
     Q_PROPERTY(QDateTime departureTime READ departureTime)
@@ -43,6 +44,8 @@ class FlightReservation : public QObject
 
 public:
     explicit FlightReservation(QObject* parent = 0);
+
+    bool valid() const;
 
     QString flightName() const;
     QString flightNumber() const;

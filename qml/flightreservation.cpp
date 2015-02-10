@@ -26,6 +26,8 @@
 #include <QStandardPaths>
 #include <QDebug>
 
+#include <algorithm>
+
 FlightReservation::FlightReservation(QObject* parent)
     : QObject(parent)
 {
@@ -45,10 +47,33 @@ FlightReservation::FlightReservation(QObject* parent)
         reservations << query.result();
     }
 
-    // Choose one?
-    if (!reservations.isEmpty()) {
-        m_data = reservations.last();
+    //
+    // Find the Reservation which is closest to the current time
+    // in the future
+    //
+    const QDateTime now = QDateTime::currentDateTime();
+    for (const QVariantMap& map : reservations) {
+        QDateTime dt = map.value("departureTime").toDateTime();
+        if (now.secsTo(dt) < 0) {
+            continue;
+        }
+
+        QDateTime dataDt = m_data.value("departureTime").toDateTime();
+        if (dataDt.isNull()) {
+            m_data = map;
+            continue;
+        }
+
+        if (dt < dataDt) {
+            m_data = map;
+            continue;
+        }
     }
+}
+
+bool FlightReservation::valid() const
+{
+    return !m_data.isEmpty();
 }
 
 QString FlightReservation::flightName() const
