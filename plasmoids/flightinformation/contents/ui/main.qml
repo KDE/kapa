@@ -37,6 +37,7 @@ Item {
     }
 
     KdeNow.FlightInformation {
+        anchors.fill: parent
         visible: reservation.valid
 
         flightName: reservation.flightName + " Flight"
@@ -51,6 +52,7 @@ Item {
     }
 
     PlasmaExtras.Heading {
+        anchors.fill: parent
         text: "No Upcoming Flights"
         visible: !reservation.valid
     }
