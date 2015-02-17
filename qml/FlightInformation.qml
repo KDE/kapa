@@ -90,7 +90,7 @@ ColumnLayout {
             ColumnLayout {
                 spacing: 0
                 PlasmaExtras.Heading {
-                    text: Qt.formatDateTime(departureTime, "h:m AP")
+                    text: Qt.formatDateTime(departureTime, "h:mm AP")
                     level: 5
                 }
 
@@ -122,7 +122,7 @@ ColumnLayout {
             ColumnLayout {
                 spacing: 0
                 PlasmaExtras.Heading {
-                    text: Qt.formatDateTime(arrivalTime, "h:m AP")
+                    text: Qt.formatDateTime(arrivalTime, "h:mm AP")
                     level: 5
                 }
 
