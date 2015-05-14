@@ -18,8 +18,8 @@
    License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _KDE_NOW_CONFIG_H
-#define _KDE_NOW_CONFIG_H
+#ifndef _KDE_KAPA_CONFIG_H
+#define _KDE_KAPA_CONFIG_H
 
 #define TEST_FILES_PATH "@CMAKE_CURRENT_SOURCE_DIR@/"
 

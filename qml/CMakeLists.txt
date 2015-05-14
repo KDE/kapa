@@ -6,14 +6,14 @@ set(qml_plugin_SRCS
     flightreservation.cpp
 )
 
-add_library(kdenowqmlplugin SHARED ${qml_plugin_SRCS})
-target_link_libraries(kdenowqmlplugin
+add_library(kapaqmlplugin SHARED ${qml_plugin_SRCS})
+target_link_libraries(kapaqmlplugin
     Qt5::Qml
     KDocumentStore
 )
 
-install (TARGETS kdenowqmlplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/now)
-install (FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/now)
+install (TARGETS kapaqmlplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/kapa)
+install (FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/kapa)
 install (FILES FlightInformation.qml
                airplane49.png
-         DESTINATION ${QML_INSTALL_DIR}/org/kde/now)
+         DESTINATION ${QML_INSTALL_DIR}/org/kde/kapa)

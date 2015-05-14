@@ -1,13 +1,13 @@
 #
-# KDE Now Daemon
+# Kapa Daemon
 #
-add_executable(kdenowd
+add_executable(kapad
     main.cpp
     emailfetchjob.cpp
     processor.cpp
     microdataparser.cpp
 )
-target_link_libraries(kdenowd
+target_link_libraries(kapad
     Qt5::Core
     Qt5::Xml
     KF5::Imap
@@ -15,6 +15,6 @@ target_link_libraries(kdenowd
     KDocumentStore
 )
 
-install(TARGETS kdenowd ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kapad ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 add_subdirectory(autotests)

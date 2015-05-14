@@ -1,1 +1,1 @@
-plasma_install_package(flightinformation org.kde.plasma.now.flightinformation)
+plasma_install_package(flightinformation org.kde.plasma.flightinformation)

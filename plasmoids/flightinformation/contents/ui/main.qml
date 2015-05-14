@@ -23,7 +23,7 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.3
 
-import org.kde.now 0.1 as KdeNow
+import org.kde.kapa 0.1 as Kapa
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 Item {
@@ -32,11 +32,11 @@ Item {
     Layout.minimumHeight: 600
     Layout.maximumHeight: 600
 
-    KdeNow.FlightReservation {
+    Kapa.FlightReservation {
         id: reservation
     }
 
-    KdeNow.FlightInformation {
+    Kapa.FlightInformation {
         anchors.fill: parent
         visible: reservation.valid
 

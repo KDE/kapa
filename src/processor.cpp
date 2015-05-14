@@ -28,7 +28,7 @@
 Processor::Processor(QObject* parent)
     : QObject(parent)
 {
-    QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/kdenow";
+    QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/kapa";
     QDir().mkpath(dir);
 
     m_store.setPath(dir + "/db");

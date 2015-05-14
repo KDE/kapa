@@ -31,7 +31,7 @@
 FlightReservation::FlightReservation(QObject* parent)
     : QObject(parent)
 {
-    QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/kdenow";
+    QString dir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/kapa";
 
     KDocumentStore store;
     store.setPath(dir + "/db");
