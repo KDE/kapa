@@ -10,7 +10,7 @@ add_executable(kapad
 target_link_libraries(kapad
     Qt5::Core
     Qt5::Xml
-    KF5::Imap
+    KF5::IMAP
     KF5::CoreAddons
     KDocumentStore
 )

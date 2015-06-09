@@ -22,11 +22,11 @@
 
 #include <QObject>
 
-#include <KImap/Session>
-#include <KImap/LoginJob>
-#include <KImap/SelectJob>
-#include <KImap/SearchJob>
-#include <KImap/FetchJob>
+#include <KIMAP/Session>
+#include <KIMAP/LoginJob>
+#include <KIMAP/SelectJob>
+#include <KIMAP/SearchJob>
+#include <KIMAP/FetchJob>
 
 #include <KMime/Message>
 

@@ -23,7 +23,7 @@
 #include <QObject>
 
 #include <KMime/Message>
-#include <KImap/FetchJob>
+#include <KIMAP/FetchJob>
 
 #include <KDocumentStore/KDocumentStore>
 #include <KDocumentStore/KDocumentCollection>
