@@ -1,0 +1,10 @@
+add_executable(dumpemail
+    dumpemail.cpp
+    ../emailfetchjob.cpp
+)
+target_link_libraries(dumpemail
+    Qt5::Core
+    Qt5::Xml
+    KF5::IMAP
+    KF5::CoreAddons
+)

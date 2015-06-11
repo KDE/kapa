@@ -18,3 +18,4 @@ target_link_libraries(kapad
 install(TARGETS kapad ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 add_subdirectory(autotests)
+add_subdirectory(tools)
